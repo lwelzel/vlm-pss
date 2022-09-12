@@ -1,0 +1,33 @@
+Bottleneck @ file:///D:/bld/bottleneck_1656803876399/work
+certifi==2022.6.15
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1655412516417/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
+fonttools @ file:///D:/bld/fonttools_1661381457100/work
+kiwisolver @ file:///D:/bld/kiwisolver_1657953189205/work
+matplotlib @ file:///D:/bld/matplotlib-suite_1661439973878/work
+mkl-service==2.4.0
+mpmath @ file:///home/conda/feedstock_root/build_artifacts/mpmath_1612895720168/work
+munkres==1.1.4
+numexpr @ file:///C:/Windows/Temp/abs_e2036a32-9fe9-47f3-a04c-dbb1c232ba4b334exiur/croots/recipe/numexpr_1656940304835/work
+numpy @ file:///D:/bld/numpy_1649806536290/work
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1637239678211/work
+pandas @ file:///C:/ci/pandas_1641461312795/work
+patsy @ file:///home/conda/feedstock_root/build_artifacts/patsy_1632667180946/work
+Pillow @ file:///D:/bld/pillow_1660386017560/work
+ply==3.11
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1652235407899/work
+PyQt5==5.15.7
+PyQt5-sip @ file:///D:/bld/pyqt-split_1657234624505/work/pyqt_sip
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1660580468234/work
+scipy @ file:///C:/bld/scipy_1637806996411/work
+seaborn @ file:///home/conda/feedstock_root/build_artifacts/seaborn-split_1662491375569/work
+sip @ file:///D:/bld/sip_1655765020398/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+statsmodels @ file:///D:/bld/statsmodels_1654787262041/work
+sympy @ file:///D:/bld/sympy_1661297170144/work
+toml @ file:///home/conda/feedstock_root/build_artifacts/toml_1604308577558/work
+tornado @ file:///D:/bld/tornado_1656937938087/work
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1662214488106/work
+typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1656706066251/work
+unicodedata2 @ file:///D:/bld/unicodedata2_1649112131705/work
