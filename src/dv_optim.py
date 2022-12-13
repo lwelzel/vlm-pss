@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
+
 def get_dv(v_ex, m_sc, m_tank, m_prop):
     return v_ex * np.log((m_sc + m_tank + m_prop) / (m_sc + m_tank))
 
@@ -13,13 +14,14 @@ def get_tank_mass(m_prop, P=55000):
     t_wall = 0.5 / 1000  # mm minimum
     # assuming h/r_opt = 2 (constant surface area)
 
-    r = (v_tank / (2 * np.pi))**(1./3)
+    r = (v_tank / (2 * np.pi)) ** (1. / 3)
     h = 2. * r
 
     rho = 4480  # kg/m3
-    m_tank = 2 * np.pi * r * h * rho * t_wall + 2 * np.pi * r**2 * t_wall * rho
+    m_tank = 2 * np.pi * r * h * rho * t_wall + 2 * np.pi * r ** 2 * t_wall * rho
 
     return m_tank
+
 
 def get_hex_tank_mass(m_prop, P=55000):
     v_tank = m_prop * 1e-3
@@ -28,22 +30,21 @@ def get_hex_tank_mass(m_prop, P=55000):
     t_wall = 0.5 / 1000  # mm minimum
     # assuming h/r_opt = 2 (constant surface area)
 
-    r = (v_tank / (2 * np.pi))**(1./3)
+    r = (v_tank / (2 * np.pi)) ** (1. / 3)
     h = 2. * r
 
     rho = 4480  # kg/m3
-    m_tank = 2 * np.pi * r * h * rho * t_wall + 2 * np.pi * r**2 * t_wall * rho
+    m_tank = 2 * np.pi * r * h * rho * t_wall + 2 * np.pi * r ** 2 * t_wall * rho
 
     return m_tank
 
 
 def plot_cylinder_ratio():
     r = np.linspace(0.8, 17, 1000)
-    t = 0.5/1000
+    t = 0.5 / 1000
     v = 1.
 
-    h = (v - 2 * np.pi * r**2 * t) / (2 * np.pi * r * t)
-
+    h = (v - 2 * np.pi * r ** 2 * t) / (2 * np.pi * r * t)
 
     # h = (A - 2 * 2 * np.pi * r) / (np.pi * r**2)
 
@@ -55,14 +56,15 @@ def plot_cylinder_ratio():
 
     # ratio = np.linspace(0.1, 1000, 100)
 
-    volume = np.pi * (r)**2 * h
+    volume = np.pi * (r) ** 2 * h
 
     fig, ax = plt.subplots()
 
     v_rat = volume / (np.max(volume))
 
     full = ax.plot(ratio, v_rat, label="Constant tank mass,\nconstant wall thickness")
-    ax.axvline(0.5, c="black", ls="dashed", label=r"$\left(V_{encl.}\right)_{max}$ at $r / h =0.5$"+"\n(analytic sol.)")
+    ax.axvline(0.5, c="black", ls="dashed",
+               label=r"$\left(V_{encl.}\right)_{max}$ at $r / h =0.5$" + "\n(analytic sol.)")
     ax.set_xlabel(r"$r / h$")
     ax.set_ylabel(r"$V_{encl.} / V_{encl., ~max}$")
     ax.set_xscale("log")
@@ -101,7 +103,7 @@ def plot_cylinder_ratio():
 
 
 def plot_dv(v_ex=1000):
-    m_sc = 0.6 # np.linspace(0.1, 10, 20)
+    m_sc = 0.6  # np.linspace(0.1, 10, 20)
     m_prop = np.linspace(5, 25, 200) / 1000
     m_tank = np.linspace(5, 30, 200) / 1000
 
@@ -109,12 +111,12 @@ def plot_dv(v_ex=1000):
 
     mm_actual_tank = get_tank_mass(mm_prop)
     mm_total1 = mm_tank + mm_prop
-    total_mass_allowed1 = mm_total1 < 32./1000
+    total_mass_allowed1 = mm_total1 < 32. / 1000
     total_mass_allowed1[not np.nonzero(total_mass_allowed1)] = 0.
     total_mass_allowed1[np.nonzero(total_mass_allowed1)] = 1.
 
     mm_total = mm_actual_tank + mm_prop
-    total_mass_allowed = mm_total < 32./1000
+    total_mass_allowed = mm_total < 32. / 1000
     total_mass_allowed[not np.nonzero(total_mass_allowed)] = 0.
     total_mass_allowed[np.nonzero(total_mass_allowed)] = 1.
 
@@ -125,7 +127,8 @@ def plot_dv(v_ex=1000):
     fig, (ax) = plt.subplots(1, 1, figsize=1.2 * np.array([6.4, 4.8]))
 
     # cont = ax.contourf(mm_tank * 1000, mm_prop * 1000, mm_actual_tank * 1000, levels=25)
-    cont = ax.contourf(mm_tank * 1000, mm_prop * 1000, dv * total_mass_allowed * total_mass_allowed1, levels=25, alpha=1,
+    cont = ax.contourf(mm_tank * 1000, mm_prop * 1000, dv * total_mass_allowed * total_mass_allowed1, levels=25,
+                       alpha=1,
                        vmin=np.min(dv))
     # cont1 = ax.contourf(mm_tank * 1000, mm_prop * 1000, dv, levels=25,
     #                    alpha=0.2)
@@ -146,8 +149,6 @@ def plot_dv(v_ex=1000):
     plt.savefig("dV_cyl_tank_inf_approx.png", dpi=350, format="png")
 
     plt.show()
-
-
 
     # mm_sc, mm_tank, mm_prop = np.meshgrid(m_sc, m_tank, m_prop)
     # dv = get_dv(v_ex, mm_sc, mm_tank, mm_prop)
@@ -178,7 +179,6 @@ def plot_dv(v_ex=1000):
     # # tight layout
     # fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
     # fig.show()
-
 
 
 if __name__ == '__main__':
