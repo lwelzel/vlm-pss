@@ -255,9 +255,6 @@ fabric.properties
 ### DS9
 **/ds9*
 
-### do not ignore .fits in /raw_data
-!/data/raw_data/hd107146_reduced/*.fits
-!/data/raw_data/hd107146_disk_model/MODEL20_HD107146_16.5_47_h=0.3_NUP.fits
 
 ### image files
 *.png
@@ -279,4 +276,10 @@ fabric.properties
 *.idea
 *.epub
 
-# old projcts
+*.7z
+*.wbpj
+*.xlsx
+
+./src/ARCHIVE
+./src/.ipynb_checkpoints
+./vlm-pss_files

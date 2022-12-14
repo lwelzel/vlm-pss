@@ -39,7 +39,7 @@ def join_csvs(path=["MIP_EGO_results_long_combined.csv", "MIP_EGO_results_long_c
     else:
         df = get_data(path)
 
-    df.to_csv("MIP_EGO_results_long_combined_joined_local_opt.csv")
+    df.to_csv("MIP_EGO_results_long_combined2.csv")
 
 
 def theta2design(df):
@@ -369,7 +369,6 @@ def plot_corners(path="", hue="round_stds", max_score=0.0):
 
 
 
-
 def csv2corner_full(path="MIPEGO_results_full.csv"):
     if isinstance(path, list):
         df = get_data(path[0])
@@ -420,7 +419,9 @@ def csv2corner_full(path="MIPEGO_results_full.csv"):
 
 
 if __name__ == '__main__':
-    path = "MIP_EGO_results_long_combined_local_opt.csv"  # ["MIP_EGO_results_full_long.csv", "MIP_EGO_results_full_long2.csv"]
+    path = "MIP_EGO_results_long_combined2.csv"  # ["MIP_EGO_results_full_long.csv", "MIP_EGO_results_full_long2.csv"]
     # csv2corner_full(path=path)
-    plot_corners(path=path, hue="round_stds", max_score=-30.0)
+
+    plot_corners(path=path, hue="round_stds", max_score=10.0)
+    # join_csvs(path=["MIP_EGO_results_long_combined.csv", "MIP_EGO_results_full_long3.csv"])
 

@@ -77,8 +77,8 @@ SM_thickness = bd.array([0.2, 6.]) * 1e-3  # mm -> m
 
 # cops
 leg_length_bounds = bd.array([2.5, 70.]) * 1e-3  # mm -> m
-deflection_0 = - bd.array([20., 0.]) * 1e-3  # mm -> m
-deflection_1 = bd.array([0., 25.]) * 1e-3  # mm -> m
+deflection_0 = - bd.array([10., 0.]) * 1e-3  # mm -> m
+deflection_1 = bd.array([0., 15.]) * 1e-3  # mm -> m
 
 # tank
 tank_wall_thickness = bd.array([0.25, 10.0]) * 1e-3  # mm -> m
@@ -705,11 +705,11 @@ def optimize_from_guess(guess_csv_path="", local_iter=10,
 
 if __name__ == '__main__':
     print("Starting...")
-    # optimize_pss_mipego(adaptive_fn_eval=90000, warm_up_fn_eval=6000, n_cores=30,
-    #                     n_per_iter=90, f_name="MIP_EGO_results_full_test.csv")
+    optimize_pss_mipego(adaptive_fn_eval=120000, warm_up_fn_eval=9000, n_cores=30,
+                        n_per_iter=90, f_name="MIP_EGO_results_full_long3.csv")
 
-    optimize_from_guess(guess_csv_path="MIP_EGO_results_long_combined.csv", local_iter=3000,
-                        max_score=30.0)
+    # optimize_from_guess(guess_csv_path="MIP_EGO_results_long_combined.csv", local_iter=3000,
+    #                     max_score=30.0)
 
 
 
